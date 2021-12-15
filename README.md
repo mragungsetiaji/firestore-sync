@@ -9,20 +9,20 @@
 - Create cloud function in source project, each function only listen to one collection/document and one context event.
   example:
   ```bash
-    # function that listen collection1 on write event
-    gcloud functions deploy collection1-onwrite \
+  # function that listen collection1 on write event
+  gcloud functions deploy collection1-onwrite \
   --runtime python37 --trigger-event providers/cloud.firestore/eventTypes/document.write \
   --trigger-resource projects/PROJECT_ID/databases/(default)/documents/collection1
   ``` 
 
-    ```bash
-    # function that listen collection1 on update event
-    gcloud functions deploy collection1-onupdate \
+  ```bash
+  # function that listen collection1 on update event
+  gcloud functions deploy collection1-onupdate \
   --runtime python37 --trigger-event providers/cloud.firestore/eventTypes/document.update \
   --trigger-resource projects/PROJECT_ID/databases/(default)/documents/collection1
   ``` 
 
-## Limiation
+## Limitation
 Note the following limitations for Cloud Firestore triggers for Cloud Functions:
 
 - Ordering is not guaranteed. Rapid changes can trigger function invocations in an unexpected order.
